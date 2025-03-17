@@ -1,0 +1,562 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/* Map Container */
+#map {
+    position: absolute;
+    top: 0;
+    left: 270px; /* Keep space for sidebar */
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    transition: left 0.3s ease;
+}
+
+.leaflet-control-layers-toggle {
+    display: none !important;
+}
+
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #f9f9f9;
+    padding: 10px;
+    box-shadow: 5px 0 10px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+/* Sidebar Header */
+#sidebar h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Layer Buttons */
+#layer-control button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    text-align: left;
+}
+
+#layer-control button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#layer-control button.active:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#layer-control button:hover {
+    background-color: #d6d6d6;
+}
+
+.hidden {
+    display: none;
+}
+
+#disclaimer-container {
+    background-color: #f9f9f9;
+    padding: 5px;
+    text-align: justify;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 10px;
+}
+
+.creator-name {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+.disclaimer-link {
+    color: #ff0000;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Category Titles */
+#layer-control h4 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: #555;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    padding-left: 8px;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    display: flex;
+    align-items:center;
+    gap: 5px;
+    padding: 5px;
+}
+
+.Creator-link {
+    font-size: 11px;
+    color: #000000;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.creator-name {
+    color: #1a73e8; /* Link color */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.creator-name:hover {
+    color: #0c47a1; /* Darker shade on hover */
+}
+
+/* Category Title Style */
+.category-title {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.category-title:hover {
+    color: #4CAF50;
+}
+
+/* Layer Container */
+.layer-container {
+    margin-left: 10px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.layer-container.hidden {
+    display: none;
+}
+
+/* Layer Name (Button) Style */
+.layer-toggle {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 8px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover State */
+.layer-toggle:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+/* Active State */
+.layer-toggle.active {
+    background-color: #4CAF50;
+    color: #fff;
+    border-color: #4CAF50;
+}
+
+/* Disabled State (Optional) */
+.layer-toggle:disabled {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+
+/* Sidebar Logo */
+.sidebar-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Sidebar Address Container */
+.sidebar-address-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+}
+
+/* Sidebar Address */
+.sidebar-address {
+    font-size: 12px;
+    color: #333;
+    margin: 0;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.horizontal-line {
+    position: relative; /* Ensures proper stacking context */
+    z-index: 10; /* Brings it above other elements */
+    height: 1px;
+    background-color: #666666; /* Line color */
+    width: 100%; /* Ensures it stretches fully */
+    margin: 0px ;
+}
+
+
+/* Sidebar Toggle (Hidden in PC View) */
+#sidebar-toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1100;
+    display: none; /* Hidden on larger screens */
+    transition: left 0.2s ease;
+}
+
+#sidebar.open + #sidebar-toggle {
+    left: 270px; /* Adjust based on sidebar width */
+}
+
+/* Coordinates Display */
+#coordinates {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+/* Zoom Buttons */
+.leaflet-top.leaflet-left {
+    top: 10px;
+    right: 10px; /* Move to top right */
+    left: auto;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover {
+    background-color: #f4f4f4;
+}
+
+/* === VECTOR LAYER STYLING === */
+/* General Style for All Vector Layers */
+.vector-layer {
+    border-radius: 50%;
+    border: 2px solid #fc3838;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    width: 14px;
+    height: 14px;
+    opacity: 0.8;
+    transition: transform 0.2s ease;
+}
+
+.vector-layer:hover {
+    transform: scale(1.2);
+}
+
+/* Specific Layer Styles */
+
+.custom-icon {
+    width: 15px;
+    height: 15px;
+    background-color: #7dca00;
+    clip-path: polygon(50% 5%, 61% 40%, 98% 40%, 68% 62%, 79% 96%, 50% 75%, 21% 96%, 32% 62%, 2% 40%, 39% 40%); /* Triangle */
+}
+
+
+
+
+/* General Polygon Layer Styling */
+.leaflet-interactive.rizal-layer,
+.leaflet-interactive.bunog-layer,
+.leaflet-interactive.iraan-layer,
+.leaflet-interactive.puntabaja-layer,
+.leaflet-interactive.campongulay-layer,
+.leaflet-interactive.ransang-layer,
+.leaflet-interactive.candawaga-layer,
+.leaflet-interactive.panalingaan-layer,
+.leaflet-interactive.culasian-layer,
+.leaflet-interactive.taburi-layer,
+.leaflet-interactive.latud-layer,
+.leaflet-interactive.canipaan-layer {
+    stroke: #ffffff !important; /* Border color */
+    stroke-width: 1px !important; /* Border width */
+    fill-opacity: 0 !important; /* Transparency of fill color */
+    stroke-dasharray: 5, 5 !important; /* Dashed line pattern */
+}
+
+/* Change Stroke to Black When OSM is Active */
+#map.osm-active .leaflet-interactive.rizal-layer,
+#map.osm-active .leaflet-interactive.bunog-layer,
+#map.osm-active .leaflet-interactive.iraan-layer,
+#map.osm-active .leaflet-interactive.puntabaja-layer,
+#map.osm-active .leaflet-interactive.campongulay-layer,
+#map.osm-active .leaflet-interactive.ransang-layer,
+#map.osm-active .leaflet-interactive.candawaga-layer,
+#map.osm-active .leaflet-interactive.panalingaan-layer,
+#map.osm-active .leaflet-interactive.culasian-layer,
+#map.osm-active .leaflet-interactive.taburi-layer,
+#map.osm-active .leaflet-interactive.latud-layer,
+#map.osm-active .leaflet-interactive.canipaan-layer {
+    stroke: #000000 !important; /* Black stroke */
+    stroke-width: 1px !important;
+    stroke-dasharray: 5, 5 !important;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.leaflet-interactive.mmpl-layer {
+    stroke: #ff0000 !important;
+    stroke-width: 3px !important;
+    fill-opacity: 0 !important; /* Transparency of fill color */
+    stroke-dasharray: 5, 5 !important; /* Dashed line pattern */
+}
+
+/* Base Map Buttons */
+.base-map-toggle {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 2px solid #ddd; /* Light border */
+    background-color: #fafafa; /* Light gray background */
+    color: #333; /* Dark text */
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+/* Hover State */
+.base-map-toggle:hover {
+    background-color: #f0f0f0; /* Slightly darker background */
+    color: #000;
+    border-color: #bbb; /* Darker border */
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.15); /* Stronger shadow on hover */
+}
+
+/* Active State */
+.base-map-toggle.active {
+    background-color: #4caf50; /* Green background for active state */
+    color: #fff;
+    border-color: #4caf50;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+/* Optional: Custom styling for OpenStreetMap-specific active state */
+#map.osm-active .base-map-toggle[data-type="base"] {
+    background-color: #2196f3; /* Blue for OpenStreetMap */
+    color: #fff;
+    border-color: #2196f3;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .base-map-toggle {
+        padding: 10px 16px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+}
+
+
+/*LAND CLASSIFICATION*/
+
+.leaflet-interactive.forestland-layer {
+    stroke: #003b0f !important; /* Border color */
+    stroke-width: 1px !important; /* Border width */
+    fill: #008d23 !important; /* Fill color */
+    fill-opacity: .1 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.UPF-layer {
+    stroke: #003b0f !important; /* Border color */
+    stroke-width: 1px !important; /* Border width */
+    fill: #008d23 !important; /* Fill color */
+    fill-opacity: 1 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.AssumedFL-layer {
+    stroke: #000000 !important; /* Border color */
+    stroke-width: 1px !important; /* Border width */
+    fill: #5eff00 !important; /* Fill color */
+    fill-opacity: .1 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.AlienableandDisposable-layer {
+    stroke: #3a3b00 !important; /* Border color */
+    stroke-width: 1px !important; /* Border width */
+    fill: #ffcc00 !important; /* Fill color */
+    fill-opacity: .1 !important; /* Transparency of fill color */
+}
+
+/*ECAN ZONATION*/
+
+.leaflet-interactive.RUZ-layer {
+    stroke: #003b0f !important; /* Border color */
+    stroke-width: 1px !important; /* Border width */
+    fill: #003ec5 !important; /* Fill color */
+    fill-opacity: .5 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.MUZ-layer {
+    stroke: #003b0f !important; /* Border color */
+    stroke-width: 1px !important; /* Border width */
+    fill: #fbff00 !important; /* Fill color */
+    fill-opacity: .5 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.CZ-layer {
+    stroke: #000000 !important; /* Border color */
+    stroke-width: 1px !important; /* Border width */
+    fill: #d30000 !important; /* Fill color */
+    fill-opacity: .5 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.CUZ-layer {
+    stroke: #3a3b00 !important; /* Border color */
+    stroke-width: 1px !important; /* Border width */
+    fill: #008311 !important; /* Fill color */
+    fill-opacity: .5 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.TUZ-layer {
+    stroke: #3a3b00 !important; /* Border color */
+    stroke-width: 1px !important; /* Border width */
+    fill: #795209 !important; /* Fill color */
+    fill-opacity: .5 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.river-layer {
+    stroke: #1e90ff; /* Line color */
+    stroke-width: 2px; /* Line thickness */
+    stroke-opacity: 0.5; /* Line opacity */
+}
+
+.leaflet-interactive.road-layer {
+    stroke: #ff5733; /* Line color */
+    stroke-width: 2px; /* Line thickness */
+    stroke-opacity: 0.9; /* Line opacity */
+    stroke-dasharray: 4, 2; /* Dashed line pattern */
+}
+
+
+#coordinates {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+/* === Mobile Adjustments === */
+@media (max-width: 768px) {
+    #sidebar {
+        left: -250px;
+        transition: left 0.2s ease;
+    }
+
+        #sidebar.open + #sidebar-toggle {
+            left: 230px; /* Adjust based on sidebar width */
+
+    }
+    #sidebar-toggle {
+        display: block;
+    }
+
+    #sidebar.open {
+        left: 0;
+    }
+
+    #map {
+        left: 0;
+    }
+
+    .sidebar-address {
+        font-size: 9px;
+    }
+    
+    /* Adjust Side Panel for Smaller Phones */
+    @media (max-width: 768px) {
+        #sidebar {
+            width: 200px;
+        }
+    
+        #sidebar-toggle {
+            left: 10px;
+            top: 10px;
+            padding: 8px;
+            
+        }
+    
+        #layer-control button {
+            font-size: 12px;
+            padding: 8px;
+        }
+    
+        #coordinates {
+            position: fixed;
+            font-size: 10px;
+            padding: 5px;
+            width: 170px;
+            background-color: rgba(228, 228, 228, 0.8); /* Optional for better visibility */
+
+        }
+    }
+}

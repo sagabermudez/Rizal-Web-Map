@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rizal(Marcos) Webmap</title>
+    <link rel="icon" href="mundo.png" type="image/png">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+   
+
+<!-- Sidebar -->
+<div id="sidebar">
+    <div class="sidebar-header">
+    <img src="Logo/JPR.png" alt="Municipality Logo" class="sidebar-logo">
+    <div class="sidebar-address-container">
+        <p class="sidebar-address">Republic of the Philippines</p>
+        <p class="sidebar-address">Province of Palawan</p>
+        <p class="sidebar-address">Municipality of Dr. Jose P. Rizal</p>
+        
+    </div>
+    
+</div>
+
+<div class="horizontal-line"></div>
+
+<p class="Creator-link">Web map by <a href="https://example.com" target="_blank" class="creator-name">Alexis.</a>
+    <a href="#" class="disclaimer-link" onclick="toggleDisclaimer(event)">Disclaimer</a>
+</p>
+
+<div id="disclaimer-container"  class="hidden">
+    <p>This web map is a self-initiated project created as part of my 
+        learning process in web mapping. While every effort has been 
+        made to ensure the accuracy and completeness of the data, no 
+        guarantees are made regarding its correctness. The map may 
+        contain errors, omissions, or outdated information. The creator
+         is not liable for any decisions or actions taken based on the 
+         information provided.</p>
+</div>
+
+<h3>Basemap Layer</h3>
+    <div id="layer-control">
+        <!-- Layer buttons will be dynamically added here -->
+    </div>
+</div>
+
+<!-- Toggle Button for Mobile -->
+<div id="sidebar-toggle">
+    <span>&#9776;</span>
+</div>
+
+<!-- Map Container -->
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="map.js"></script>
+
+</body>
+</html>
