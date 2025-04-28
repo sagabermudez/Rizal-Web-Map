@@ -419,28 +419,28 @@ h3 {
 
 .leaflet-interactive.forestland-layer {
     stroke: #003b0f !important; /* Border color */
-    stroke-width: 1px !important; /* Border width */
+    stroke-width: 0px !important; /* Border width */
     fill: #008d23 !important; /* Fill color */
     fill-opacity: .1 !important; /* Transparency of fill color */
 }
 
 .leaflet-interactive.UPF-layer {
     stroke: #003b0f !important; /* Border color */
-    stroke-width: 1px !important; /* Border width */
+    stroke-width: 0px !important; /* Border width */
     fill: #008d23 !important; /* Fill color */
     fill-opacity: 1 !important; /* Transparency of fill color */
 }
 
 .leaflet-interactive.AssumedFL-layer {
     stroke: #000000 !important; /* Border color */
-    stroke-width: 1px !important; /* Border width */
+    stroke-width: 0px !important; /* Border width */
     fill: #5eff00 !important; /* Fill color */
     fill-opacity: .1 !important; /* Transparency of fill color */
 }
 
 .leaflet-interactive.AlienableandDisposable-layer {
     stroke: #3a3b00 !important; /* Border color */
-    stroke-width: 1px !important; /* Border width */
+    stroke-width: 0px !important; /* Border width */
     fill: #ffcc00 !important; /* Fill color */
     fill-opacity: .1 !important; /* Transparency of fill color */
 }
@@ -449,36 +449,64 @@ h3 {
 
 .leaflet-interactive.RUZ-layer {
     stroke: #003b0f !important; /* Border color */
-    stroke-width: 1px !important; /* Border width */
+    stroke-width: 0px !important; /* Border width */
     fill: #003ec5 !important; /* Fill color */
     fill-opacity: .5 !important; /* Transparency of fill color */
 }
 
 .leaflet-interactive.MUZ-layer {
     stroke: #003b0f !important; /* Border color */
-    stroke-width: 1px !important; /* Border width */
+    stroke-width: 0px !important; /* Border width */
     fill: #fbff00 !important; /* Fill color */
     fill-opacity: .5 !important; /* Transparency of fill color */
 }
 
 .leaflet-interactive.CZ-layer {
     stroke: #000000 !important; /* Border color */
-    stroke-width: 1px !important; /* Border width */
+    stroke-width: 0px !important; /* Border width */
     fill: #d30000 !important; /* Fill color */
     fill-opacity: .5 !important; /* Transparency of fill color */
 }
 
 .leaflet-interactive.CUZ-layer {
     stroke: #3a3b00 !important; /* Border color */
-    stroke-width: 1px !important; /* Border width */
+    stroke-width: 0px !important; /* Border width */
     fill: #008311 !important; /* Fill color */
     fill-opacity: .5 !important; /* Transparency of fill color */
 }
 
 .leaflet-interactive.TUZ-layer {
     stroke: #3a3b00 !important; /* Border color */
-    stroke-width: 1px !important; /* Border width */
+    stroke-width: 0px !important; /* Border width */
     fill: #795209 !important; /* Fill color */
+    fill-opacity: .5 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.cBuffer-layer {
+    stroke: #003b0f !important; /* Border color */
+    stroke-width: 0px !important; /* Border width */
+    fill: #003ec5 !important; /* Fill color */
+    fill-opacity: .5 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.cMUZ-layer {
+    stroke: #003b0f !important; /* Border color */
+    stroke-width: 0px !important; /* Border width */
+    fill: #fbff00 !important; /* Fill color */
+    fill-opacity: .5 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.cCZ-layer {
+    stroke: #000000 !important; /* Border color */
+    stroke-width: 0px !important; /* Border width */
+    fill: #d30000 !important; /* Fill color */
+    fill-opacity: .5 !important; /* Transparency of fill color */
+}
+
+.leaflet-interactive.mangrove-layer {
+    stroke: #000000 !important; /* Border color */
+    stroke-width: 0px !important; /* Border width */
+    fill: #d30000 !important; /* Fill color */
     fill-opacity: .5 !important; /* Transparency of fill color */
 }
 
@@ -486,13 +514,6 @@ h3 {
     stroke: #1e90ff; /* Line color */
     stroke-width: 2px; /* Line thickness */
     stroke-opacity: 0.5; /* Line opacity */
-}
-
-.leaflet-interactive.road-layer {
-    stroke: #ff5733; /* Line color */
-    stroke-width: 2px; /* Line thickness */
-    stroke-opacity: 0.9; /* Line opacity */
-    stroke-dasharray: 4, 2; /* Dashed line pattern */
 }
 
 

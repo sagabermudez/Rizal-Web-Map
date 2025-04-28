@@ -13,12 +13,12 @@ var baseMaps = {
 
     "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org">OpenStreetMap'
-    })
+    }),
 
-    //"googleSatellite" : L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-       // subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    //"Google Satellite": L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+        //subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
        // attribution: '&copy; <a href="https://www.google.com/maps">Google Maps</a>'
-    
+    //})
 };
 
 activeBaseMap = baseMaps["ESRI World Imagery"];
@@ -50,6 +50,18 @@ fetch('data/MMPL.geojson')
     .then(response => response.json())
     .then(data => mmplLayer.addData(data));
 
+    // POLYGON
+var mangroveLayer = L.geoJSON(null, {
+    onEachFeature: (feature, layer) => {
+        layer.setStyle({
+                className: 'mangrove-layer',
+            });
+        }
+    });
+fetch('data/Mangrove.geojson')
+    .then(response => response.json())
+    .then(data => mangroveLayer.addData(data));
+
 // POINTS
 var mrfLayer = L.geoJSON(null, {
     pointToLayer: (feature, latlng) => {
@@ -68,21 +80,7 @@ fetch('data/MRF Locations.geojson')
     .then(response => response.json())
     .then(data => mrfLayer.addData(data));
 // POINTS
-
-// LINES  
-var roadLayer = L.geoJSON(null, {  
-    onEachFeature: (feature, layer) => {  
-        layer.setStyle({  
-            className: 'road-layer' // Assign class for CSS  
-        });  
-    }  
-});  
   
-fetch('data/Road.geojson')  
-    .then(response => response.json())  
-    .then(data => roadLayer.addData(data));  
-// LINES  
-
 // LINES  
 var riverLayer = L.geoJSON(null, {  
     onEachFeature: (feature, layer) => {  
@@ -380,6 +378,48 @@ fetch('data/ECAN Zonation/Traditional Use Zone.geojson')
     .then(data => TUZLayer.addData(data));
 // UNTIL HERE
 
+// (COPY HERE) 
+var cMUZLayer = L.geoJSON(null, {
+    onEachFeature: (feature, layer) => {
+        layer.setStyle({
+            className: 'cMUZ-layer' // Assign class for CSS
+        });
+    }
+});
+
+fetch('data/CECAN/Multiple Use Zone.geojson')
+    .then(response => response.json())
+    .then(data => cMUZLayer.addData(data));
+// UNTIL HERE
+
+// (COPY HERE) 
+var cCZLayer = L.geoJSON(null, {
+    onEachFeature: (feature, layer) => {
+        layer.setStyle({
+            className: 'cCZ-layer' // Assign class for CSS
+        });
+    }
+});
+
+fetch('data/CECAN/Core Zone.geojson')
+    .then(response => response.json())
+    .then(data => cCZLayer.addData(data));
+// UNTIL HERE
+
+// (COPY HERE) 
+var cBufferLayer = L.geoJSON(null, {
+    onEachFeature: (feature, layer) => {
+        layer.setStyle({
+            className: 'cBuffer-layer' // Assign class for CSS
+        });
+    }
+});
+
+fetch('data/CECAN/Buffer Zone.geojson')
+    .then(response => response.json())
+    .then(data => cBufferLayer.addData(data));
+// UNTIL HERE
+
 // ================== GROUPED OVERLAYS ==================
 var groupedOverlays = {
     "Boundary": {
@@ -398,11 +438,17 @@ var groupedOverlays = {
     },
 
     "ECAN Zonation": {
-        "Restricted Use Zone": RUZLayer,
         "Multiple Use Zone": MUZLayer,
-        "Core Zone": CZLayer,
+        "Traditional Use Zone": TUZLayer,
         "Controlled Use Zone": CUZLayer,
-        "Traditional Use Zone": TUZLayer
+        "Restricted Use Zone": RUZLayer,
+        "Core Zone": CZLayer
+    },
+
+    "Coastal ECAN Zonation": {
+        "Multiple Use Zone": cMUZLayer,
+        "Buffer Zone": cBufferLayer,
+        "Core Zone": cCZLayer,
     },
     
     "Land Classification": {
@@ -418,8 +464,10 @@ var groupedOverlays = {
 
     "Other Features": {
         "River" : riverLayer,
-        "Road" : roadLayer
+        "Mangrove" : mangroveLayer
     }
+
+    
 };
 
 // ================== LAYER CONTROL IN SIDEBAR ==================
