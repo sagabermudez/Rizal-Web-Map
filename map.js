@@ -103,7 +103,7 @@ var rizalLayer = L.geoJSON(null, {
             });
         }
     });
-fetch('data/Barangay/Rizal Boundary.geojson')
+fetch('data/Barangay/Contested Area.geojson')
     .then(response => response.json())
     .then(data => rizalLayer.addData(data));
 
@@ -423,7 +423,7 @@ fetch('data/CECAN/Buffer Zone.geojson')
 // ================== GROUPED OVERLAYS ==================
 var groupedOverlays = {
     "Boundary": {
-        "Municipality of Rizal" : rizalLayer,
+        "Contested Area" : rizalLayer,
         "Bunog": bunogLayer,
         "Iraan": iraanLayer,
         "Punta Baja": PuntaBajaLayer,
