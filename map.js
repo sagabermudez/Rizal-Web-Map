@@ -8,7 +8,7 @@ var activeBaseMap = null;
 var baseMaps = {
     "ESRI World Imagery": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
         attribution: '&copy; <a href="https://www.esri.com">Esri</a>',
-        maxZoom: 20
+        maxZoom: 50
     }).addTo(map),
 
     "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -127,7 +127,7 @@ var iraanLayer = L.geoJSON(null, {
             });
         }
     });
-fetch('data/Barangay/iraan.geojson')
+fetch('data/Barangay/Iraan.geojson')
     .then(response => response.json())
     .then(data => iraanLayer.addData(data));
 
